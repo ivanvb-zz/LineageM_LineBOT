@@ -1,0 +1,13 @@
+1.安裝ngrok
+
+2.執行	ngrok http 5000
+	將Forwarding                    https://3d44-61-218-9-190.ngrok.io -> http://localhost:5000
+	這個網址調整為https://3d44-61-218-9-190.ngrok.io/callback
+	貼到Messaging API裡的Webhook網址
+
+3.Copy
+	channel_access_token跟channel_secret
+	貼到config.ini
+
+4.python terminal
+	執行 python LineageM/LineageM.py
