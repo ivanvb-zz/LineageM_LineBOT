@@ -4,7 +4,7 @@
 import configparser
 
 #時間
-from datetime import datetime
+from datetime import datetime,timezone,timedelta
 import datetime as dt
 
 #陣列
@@ -33,7 +33,8 @@ def StringSet(askString,userName,checkid):
 
     setrecord = 1   #是否紀錄 1:是,0:否
     strexists = 1   #關鍵字判斷 1:存在,0:不存在
-    current_date = datetime.now()
+    #current_date = datetime.now()
+    current_date = datetime.utcnow() + timedelta(hours=8)
     sendStringTemp = ''
     PassStrTemp = ''
     SplitLine = ''
@@ -519,7 +520,8 @@ def StringSet(askString,userName,checkid):
             elif(len(LastTimeUpdate[0]) == 6):
                 newtime = LastTimeUpdate[0][0:2] + ':' + LastTimeUpdate[0][2:4] + ':' + LastTimeUpdate[0][4:6]
             elif LastTimeUpdate[0] == '666' or LastTimeUpdate[0] == '+':
-                newtime = datetime.now().strftime('%H:%M:%S')
+                #newtime = datetime.now().strftime('%H:%M:%S')
+                newtime = (datetime.utcnow() + timedelta(hours=8)).strftime('%H:%M:%S')
             else:
                 setrecord = 0
                 pass
@@ -529,7 +531,8 @@ def StringSet(askString,userName,checkid):
                     sendStringTemp = '重置出王時間表：\n'
                     for i in range(0,len(Boss_List)):
                         if len(Boss_List[i][3]) == 0 or Boss_List[i][5] == '開':
-                            newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                            #newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                            newdatetime = datetime.strptime((datetime.utcnow() + timedelta(hours=8)).strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
                             Boss_List[i][3] = newdatetime
                             Boss_List[i][4] = 0
                             Boss_List[i][5] = '開'
@@ -543,7 +546,8 @@ def StringSet(askString,userName,checkid):
 
                     for i in range(0,len(Pass_List)):
                         if len(Pass_List[i][3]) == 0 or Pass_List[i][5] == '開':
-                            newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                            #newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                            newdatetime = datetime.strptime((datetime.utcnow() + timedelta(hours=8)).strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
                             Pass_List[i][3] = newdatetime
                             Pass_List[i][4] = 0
                             Pass_List[i][5] = '開'
@@ -555,7 +559,8 @@ def StringSet(askString,userName,checkid):
                         #重新存檔
                         np.save('LineageM/Boss_List_' + checkid, Boss_List)
 
-                    OpenDatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                    #OpenDatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                    OpenDatetime = datetime.strptime((datetime.utcnow() + timedelta(hours=8)).strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
                     np.save('LineageM/WeekOpen_' + checkid, OpenDatetime)
                     
                     Boss_List = sorted(Boss_List,key=lambda x:x[3])
@@ -582,7 +587,8 @@ def StringSet(askString,userName,checkid):
                     pass
                 #實際記錄
                 if setrecord == 1:
-                    newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                    #newdatetime = datetime.strptime(datetime.now().strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
+                    newdatetime = datetime.strptime((datetime.utcnow() + timedelta(hours=8)).strftime('%Y-%m-%d') + ' ' + newtime,'%Y-%m-%d %H:%M:%S')
 
                     #關鍵字有英文的套一下casefold(),然後關鍵字設定為小寫,實際輸入即可不分大小寫判斷
                     #tempIndex拿來存王ID的index,後面會用到

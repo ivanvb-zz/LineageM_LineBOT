@@ -36,9 +36,9 @@ from CheckSilence import SilenceListCheck
 from CheckWeekOpen import WeekOpenCheck
 from CheckPassList import PassListCheck
 from RecordList import RecodeListCheck
-import MemberList
+#import MemberList
 from BossRequest import StringSet
-from MemberJoin import MemberSet
+#from MemberJoin import MemberSet
 from CheckKeyWordList import KeywordListCheck
 
 import random
@@ -77,7 +77,7 @@ ConfirmReply = [
     'Cd4de4138f400161d73d3615d9b7b76a3',
     'C3a8a414b547f216de7f4a0e15cf2e4f4'
     ]
-MemberReply = ['Ubd9ed8a37a5a51fe3da408c9359883a9']
+#MemberReply = ['Ubd9ed8a37a5a51fe3da408c9359883a9']
 
 # 接收 LINE 的資訊
 @app.route("/callback", methods=['POST'])
