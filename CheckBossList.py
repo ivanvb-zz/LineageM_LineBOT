@@ -19,10 +19,10 @@ from datetime import datetime
 
 def BossListCheck(GroupID):
     current_date = str(datetime.now())[0:19]
-    filepath = "LineageM/Boss_List_" + GroupID + ".npy"
+    filepath = "D:/LineageM/Boss_List_" + GroupID + ".npy"
 
     if os.path.isfile(filepath):                #檔案在就讀取
-        Boss_List = np.load('LineageM/Boss_List_' + GroupID + '.npy')
+        Boss_List = np.load('D:/LineageM/Boss_List_' + GroupID + '.npy',allow_pickle=True)
     else:                                       #第一次執行要建出王清單檔案
         Boss_List = np.array([
             ['Boss_04','死騎',32400,current_date,0,''],
@@ -57,4 +57,4 @@ def BossListCheck(GroupID):
             ['Boss_Necuros','奈克(49)',14400,current_date,0,''],
             ['Boss_Baphomet','巴風特',21600,current_date,0,'']
             ])
-        np.save('LineageM/Boss_List_' + GroupID, Boss_List)
+        np.save('D:/LineageM/Boss_List_' + GroupID, Boss_List)

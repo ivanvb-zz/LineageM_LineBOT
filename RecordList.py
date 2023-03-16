@@ -15,10 +15,10 @@ import os
 
 # 要檢查的檔案路徑
 def RecodeListCheck(GroupID):
-    filepath = "LineageM/RecordList_" + GroupID + ".npy"
+    filepath = "D:/LineageM/RecordList_" + GroupID + ".npy"
 
     if os.path.isfile(filepath):                #檔案在就讀取
-        Boss_List = np.load('LineageM/RecordList_' + GroupID + '.npy',allow_pickle=True)
+        Boss_List = np.load('D:/LineageM/RecordList_' + GroupID + '.npy',allow_pickle=True)
     else:                                       #第一次執行要建出王清單檔案
         Boss_List = np.array([
             ['Boss_04','死亡騎士','','','','','',''],
@@ -51,8 +51,8 @@ def RecodeListCheck(GroupID):
             ['Boss_Devil','惡魔監視者','','','','','',''],
             ['Boss_Rabbit','曼波兔王','','','','','',''],
             ['Boss_Faust','浮士德','','','','','',''],
-            ['Boss_Baphomet','巴風特','','','','','','']
+            ['Boss_Baphomet','巴風特','','','','','',''],
             ['Boss_Orcus','烏勒(19)','','','','','',''],
             ['Boss_Necuros','奈克(49)','','','','','','']
             ], dtype=object)
-        np.save('LineageM/RecordList_' + GroupID, Boss_List)
+        np.save('D:/LineageM/RecordList_' + GroupID, Boss_List)

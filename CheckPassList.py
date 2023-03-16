@@ -18,10 +18,10 @@ from datetime import datetime
 
 def PassListCheck(GroupID):
     current_date = str(datetime.now())[0:19]
-    filepath = "LineageM/Pass_List_" + GroupID + ".npy"
+    filepath = "D:/LineageM/Pass_List_" + GroupID + ".npy"
 
     if os.path.isfile(filepath):                #檔案在就讀取
-        Pass_List = np.load('LineageM/Pass_List_' + GroupID + '.npy')
+        Pass_List = np.load('D:/LineageM/Pass_List_' + GroupID + '.npy')
     else:                                       #第一次執行要建出王清單檔案
         Pass_List = np.array([
             ['Boss_04','死騎',32400,current_date,0,''],
@@ -56,4 +56,4 @@ def PassListCheck(GroupID):
             ['Boss_Necuros','奈克(49)',14400,current_date,0,''],
             ['Boss_Baphomet','巴風特',21600,current_date,0,'']
             ])
-        np.save('LineageM/Pass_List_' + GroupID, Pass_List)
+        np.save('D:/LineageM/Pass_List_' + GroupID, Pass_List)

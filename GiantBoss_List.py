@@ -13,10 +13,10 @@ import os
 #[5]:備註
 
 # 要檢查的檔案路徑
-filepath = "LineageM/GiantBoss_List.npy"
+filepath = "D:/LineageM/GiantBoss_List.npy"
 
 if os.path.isfile(filepath):                #檔案在就讀取
-    Boss_List = np.load('LineageM/GiantBoss_List.npy')
+    Boss_List = np.load('D:/LineageM/GiantBoss_List.npy')
 else:                                       #第一次執行要建出王清單檔案
     Boss_List = np.array([
         ['Giant_01_06','奇一',86400,'2021-11-30 06:00:00',0,''],
@@ -29,4 +29,4 @@ else:                                       #第一次執行要建出王清單�
         ['Giant_03','奇三',86400,'2021-11-30 20:15:00',0,''],
         ['Giant_04','奇四',86400,'2021-11-30 21:15:00',0,'']
         ])
-    np.save('LineageM/GiantBoss_List', Boss_List)
+    np.save('D:/LineageM/GiantBoss_List', Boss_List)

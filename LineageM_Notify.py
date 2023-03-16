@@ -58,11 +58,11 @@ while loop >= 0:
         GiantStrTemp = '奇岩地監：\n'
         SplitLine = '{:-^25s}'.format('') + '\n'
 
-        Boss_List = np.load('LineageM/Boss_List_' + checkid + '.npy')
-        OpenDatetime = np.load('LineageM/WeekOpen_' + checkid + '.npy',allow_pickle=True)
-        Pass_List = np.load('LineageM/Pass_List_' + checkid + '.npy',allow_pickle=True)
-        GiantBoss_List = np.load('LineageM/GiantBoss_List.npy',allow_pickle=True)
-        Record = np.load('LineageM/RecordList_' + checkid + '.npy',allow_pickle=True)
+        Boss_List = np.load('D:/LineageM/Boss_List_' + checkid + '.npy')
+        OpenDatetime = np.load('D:/LineageM/WeekOpen_' + checkid + '.npy',allow_pickle=True)
+        Pass_List = np.load('D:/LineageM/Pass_List_' + checkid + '.npy',allow_pickle=True)
+        GiantBoss_List = np.load('D:/LineageM/GiantBoss_List.npy',allow_pickle=True)
+        Record = np.load('D:/LineageM/RecordList_' + checkid + '.npy',allow_pickle=True)
 
         for i in range(0,len(Boss_List)):
             if Boss_List[i][1] not in ('浮士德','巴風特','魔法師'):
@@ -73,7 +73,7 @@ while loop >= 0:
                         Boss_List[i][4] = int(Boss_List[i][4]) + 1
 
                 #重新存檔
-                np.save('LineageM/Boss_List_' + checkid, Boss_List)
+                np.save('D:/LineageM/Boss_List_' + checkid, Boss_List)
                 
         Boss_List = sorted(Boss_List,key=lambda x:x[3])
 
@@ -109,7 +109,7 @@ while loop >= 0:
                     GiantBoss_List[i][3] = datetime.strptime(GiantBoss_List[i][3],'%Y-%m-%d %H:%M:%S') + dt.timedelta(seconds=int(GiantBoss_List[i][2]))
         #重新存檔
         GiantBoss_List = sorted(GiantBoss_List,key=lambda x:x[3])
-        np.save('LineageM/GiantBoss_List', GiantBoss_List)
+        np.save('D:/LineageM/GiantBoss_List', GiantBoss_List)
         
         if current_date.isoweekday() in (1,2,3,4,5):
             for i in range(0,len(GiantBoss_List)):

@@ -21,13 +21,13 @@ import numpy as np
 from numpy.core.defchararray import isdigit 
 
 #Log
-import logging
-Log_Format = "%(levelname)s %(asctime)s - %(message)s"
+#import logging
+#Log_Format = "%(levelname)s %(asctime)s - %(message)s"
 
-logging.basicConfig(filename = "LineageM/LineageM_other.log",
-                    format = Log_Format, 
-                    level = logging.INFO)
-handler = logging.FileHandler('LineageM/LineageM_other.log',encoding='utf-8')
+#logging.basicConfig(filename = "D:/LineageM/LineageM_other.log",
+#                    format = Log_Format, 
+#                    level = logging.INFO)
+#handler = logging.FileHandler('D:/LineageM/LineageM_other.log',encoding='utf-8')
 
 #本機資源
 import os
@@ -46,8 +46,7 @@ import random
 import requests
 
 #是否暫停回應
-silenceTag = np.load('LineageM/Silence.npy')
-
+#silenceTag = np.load('D:/LineageM/Silence.npy')
 app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
@@ -68,14 +67,17 @@ C036ed4d1b17ac0df40fe42e776a4f479:半人馬小王表
 C6a2a470757e902298da9e4d03eeadca7:布魯迪卡小王表对照表
 Cd4de4138f400161d73d3615d9b7b76a3:海胆(卡司特调整为2.5H/狼調整為4H)
 C3a8a414b547f216de7f4a0e15cf2e4f4:海膽2號(卡司特调整为2.5H/狼調整為4H)
+Cf6eb0499ac42c34e97702390529064a3:喵
+C8e4f98f8feaa3891f15aaedc9e8fa878:英雄對照
 '''
 ConfirmReply = [
     'Ubd9ed8a37a5a51fe3da408c9359883a9',
     'C9b459635d139461ecbce3a368ac21542',
     'C036ed4d1b17ac0df40fe42e776a4f479',
     'C6a2a470757e902298da9e4d03eeadca7',
-    'Cd4de4138f400161d73d3615d9b7b76a3',
-    'C3a8a414b547f216de7f4a0e15cf2e4f4'
+    'C3a8a414b547f216de7f4a0e15cf2e4f4',
+    'Cf6eb0499ac42c34e97702390529064a3',
+    'C8e4f98f8feaa3891f15aaedc9e8fa878'
     ]
 #MemberReply = ['Ubd9ed8a37a5a51fe3da408c9359883a9']
 
@@ -143,14 +145,14 @@ def prettyEcho(event):
             TextSendMessage(text=sendString)
         )
     elif len(sendString) > 0 and checkid in ConfirmReply:
-        if np.load('LineageM/Silence_' + checkid + '.npy') == 1:
+        if np.load('D:/LineageM/Silence_' + checkid + '.npy') == 1:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=sendString)
             ) """
     sendString = StringSet(askString,userName,checkid)
     if len(sendString) > 0 and checkid in ConfirmReply:
-        if np.load('LineageM/Silence_' + checkid + '.npy') == 1:
+        if np.load('D:/LineageM/Silence_' + checkid + '.npy') == 1:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=sendString)

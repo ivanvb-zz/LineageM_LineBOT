@@ -18,10 +18,10 @@ from datetime import datetime
 # 要檢查的檔案路徑
 
 def KeywordListCheck(GroupID):
-    filepath = "LineageM/KeywordList_" + GroupID + ".npy"
+    filepath = "D:/LineageM/KeywordList_" + GroupID + ".npy"
 
     if os.path.isfile(filepath):                #檔案在就讀取
-        Boss_List = np.load('LineageM/KeywordList_' + GroupID + '.npy')
+        Boss_List = np.load('D:/LineageM/KeywordList_' + GroupID + '.npy')
     else:                                       #第一次執行要建出王清單檔案
         Boss_List = np.array([
         ['Boss_04','死騎','04|死亡騎士|死騎|'],
@@ -55,4 +55,4 @@ def KeywordListCheck(GroupID):
         ['Boss_Rabbit','兔','兔|'],
         ['Boss_Necuros','奈克','奈克|']
         ])
-        np.save('LineageM/KeywordList_' + GroupID, Boss_List)
+        np.save('D:/LineageM/KeywordList_' + GroupID, Boss_List)
